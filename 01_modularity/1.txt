@@ -1,0 +1,28 @@
+*** settings ***
+Resource  resourcefile.txt
+
+
+
+*** Test Cases ***
+Example 1
+    Log  ${message}
+
+
+Example 2
+    Log  overwite
+    ${message} = 	Set Variable 	Hello, world!
+    Log  ${message}
+
+
+Failing Test
+       Should Be Equal    2  2 
+       Should Be Equal    1  1  
+       Run Keyword And Continue On Failure  Should Be Equal    2  1
+       Should Be Equal    2  ${2}
+
+
+Test With Settings
+    [Documentation]    Another dummy test      
+    [Tags]             dummy                  owner-johndoe
+    Log                Hello, world!         
+
