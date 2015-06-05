@@ -1,0 +1,21 @@
+***Settings***
+Library	ExampleLibrary.py
+
+
+***Test Cases***
+Simple Test
+	Simple Keyword
+	Greet	Robot Framework
+	Greet	World
+
+Returning Value
+	${result} =	Multiply By Two	4.1
+	Numbers Should Be Equal	${result}	8.2
+
+Bogus Stuff
+	Greet Me	Kazam
+
+Failing Test
+	Numbers Should Be Equal	2	2
+	Numbers Should Be Equal	1	1
+	Numbers Should Be Equal	2	7	

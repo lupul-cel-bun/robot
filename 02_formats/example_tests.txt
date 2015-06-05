@@ -1,0 +1,56 @@
+| *Settings* |    *Value*         | 
+| Library    | ExampleLibrary.py  |
+| Library    | OperatingSystem    |
+
+
+
+| *Variable* | *Value* | *Value* | *Value* | *Value* | *Value* | *Value* |
+| ${MESSAGE} | Hello, world2!    | 
+| @{LIST}    |  this   | list    | has     | quite   | many    | items
+| @{VALUES}  | 1       | 2       |
+
+
+| *Test Case*     |    *Action*             |   *Argument*       |
+| Simple Test     | Simple Keyword          |                    |
+|                 | Greet                   | Robot Framework    |
+|                 | Greet                   | World              |
+|                 | Greet                   | ${MESSAGE}         |      
+
+| Returning Value | ${result} =             | Multiply By Two    | 4.1
+|                 | Numbers Should Be Equal | ${result}          | 8.2
+
+| Bogus Stuff     | Greet Me                | Kazam              |
+|                 | No Operation
+ 
+| My Test         | [Documentation]         | Example test       |
+|                 | Log                     | ${MESSAGE}         |
+|                 | My Keyword              | /tmp               |
+
+| For loop        | :FOR | ${var} | IN | @{VALUES} |
+|                 |      | Log    | ${var}         |
+
+| Failing Test    | Numbers Should Be Equal | 2                  | 2 
+|                 | Numbers Should Be Equal | 1                  | 1  
+|                 | Numbers Should Be Equal | 2                  | 2
+
+| Test With Settings | [Documentation] | Another dummy test  |  
+|                    | [Tags]          | dummy               | owner-johndoe
+|                    | Log             | Hello, world!       |
+
+| Positional argum  | Create Directory  | ${TEMPDIR}/stuff             |  
+|                   | Copy File         | ${CURDIR}/example_tests.txt  | ${TEMPDIR}/stuff
+|                   | No Operation
+
+| Mandatory params  | Create File  | ${TEMPDIR}/empty.txt       |                 |  
+|                   | Create File  | ${TEMPDIR}/utf-8.txt       | Hyvä esimerkki  |  
+|                   | Create File  | ${TEMPDIR}/iso-8859-1.txt  | Hyvä esimerkki  | ISO-8859-1
+
+
+| Variable No of argum  | Remove Files  | ${TEMPDIR}/f1.txt  | ${TEMPDIR}/f2.txt  | ${TEMPDIR}/f3.txt
+|                       | @{paths} =    | Join Paths         | ${TEMPDIR}         | f1.txt
+|                       | ...           | f2.txt             | f3.txt             | f4.txt
+
+| *Keyword*  |
+| My Keyword | [Arguments] | ${path}
+|            | Directory Should Exist | ${path}
+ #http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html

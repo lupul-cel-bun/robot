@@ -1,0 +1,9 @@
+*** settings ***
+Library  resourcefile.py
+
+
+
+*** Test Cases ***
+Example
+    ${XOXO}=  Set Variable  This is an example
+    Py Get Variable Value
